@@ -1,3 +1,5 @@
+package com.day2;
+
 public class Student {
     int id;
     String name;
@@ -11,10 +13,5 @@ public class Student {
 
     private void displayData(){
         System.out.printf("name: %s, id : %d, marks : %f\n", this.name, this.id, this.marks);
-    }
-
-    public static void main(String[] args) {
-        Student divyesh = new Student(1, "Divyesh", 99.99f);
-        divyesh.displayData();
     }
 }
