@@ -5,10 +5,20 @@ public class Car {
             color,
             manufacture;
 
+    private int speed;
+
     public Car(String model, String color, String manufacture){
         this.model = model;
         this.color = color;
         this.manufacture = manufacture;
+        this.speed = 0;
+    }
+
+    public Car(String model, String color, String manufacture, int speed) {
+        this.model = model;
+        this.color = color;
+        this.manufacture = manufacture;
+        this.speed = speed;
     }
 
     public void display(){
@@ -37,5 +47,27 @@ public class Car {
 
     public void setManufacture(String manufacture) {
         this.manufacture = manufacture;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void accelerate(int speed){
+        this.speed += speed;
+        System.out.println("acclerataing to speed " + this.speed);
+    }
+
+    public void applyBreak(){
+        this.speed = 0;
+        System.out.println("Applying break");
+    }
+
+    public void testDrive(int speed){
+        System.out.println("Going for a test drive!!");
     }
 }
