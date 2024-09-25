@@ -19,18 +19,19 @@ public class WeekendPlan {
         displayMenu();
         int choice = sc.nextInt();
 
-//        using if else
-//        if(choice == 1){
-//            System.out.println("Going for Movie!!");
-//        } else if(choice == 2) {
-//            System.out.println("Going for Shopping!!");
-//        } else if(choice == 3){
-//            System.out.println("Eating out");
-//        } else{
-//            System.out.println("Sleep");
-//        }
-
-        //using switch case
+/*
+        using if else
+        if(choice == 1){
+            System.out.println("Going for Movie!!");
+        } else if(choice == 2) {
+            System.out.println("Going for Shopping!!");
+        } else if(choice == 3){
+            System.out.println("Eating out");
+        } else{
+            System.out.println("Sleep");
+        }
+*/
+//        using switch case
         switch (choice){
             case 1: System.out.println("Going for Movie!!"); break;
             case 2: System.out.println("Going for Shopping!!"); break;

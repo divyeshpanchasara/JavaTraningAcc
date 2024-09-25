@@ -1,0 +1,441 @@
+===== code for static =======
+package com.accenture.lkm;   public  class ... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:12
+package com.accenture.lkm;
+
+public  class Employee {
+//non static fields
+	protected int employeeId;
+	protected String employeeName;
+	protected double salary;
+
+	//once u mark any var as final u can not chnage its value
+	protected static final String companyName; //static data is at class level, they are not associated with
+	//objects of the class
+
+	public Employee()
+	{
+	}
+
+
+	//id name salary - very specific to each emp
+	// Company name is common for emp of that org
+	//as company name is shared prop we will mark it as static
+	//If i mark it as a static it will get instantiated only once, that too in diff memory area on heap
+	//called as static memory area.
+	//What all things can be marked as static???
+	// instance var , methods
+	//We can not apply static on local var and class
+
+	//VIMP- how to init static members??? what is the right place??
+	//1. ctor --- we can init , but that stmt will get executed every time when we create object
+	public Employee(int employeeId, String employeeName, double salary) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.salary = salary;
+		System.out.println("ctor got invoked.....");
+		//this.companyName="Accenture";
+	}
+	//2. static block - CORRECT
+	static
+	{
+		companyName="Accenture";
+		//Que: what is the diff bet ctor and static block
+		//ANS: ctor will get invoked every time, static block will get invoked only once
+		//that too even before executing any ctor
+		System.out.println("Static block got invoked.....");
+	}
+
+	//NOTE: ******
+	//1. static methods can access only static data
+	//2. non static methods can access static + non static data
+	public static void m1()
+	{
+		System.out.println(companyName);
+		//System.out.println(employeeId);  //Error: Cannot make a static reference to the non-static field employeeId
+	}
+	public void display()
+	{
+		System.out.println(employeeId);
+		System.out.println(employeeName);
+		System.out.println(salary);
+		System.out.println(companyName);
+	}
+
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+
+	public double getSalary() {
+		return salary;
+	}
+
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+
+	//NOTE that getter setter of static field are also static only.
+	public static String getCompanyName() {
+		return companyName;
+	}
+
+
+
+
+
+
+
+
+}
+
+package com.accenture.lkm;   public class T... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:12
+package com.accenture.lkm;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	/*	Employee e1= new Employee();
+		e1.employeeId=1001;
+		e1.employeeName="Sara";
+		e1.salary=1234.44;
+		e1.companyName="Accenture";  //shared data among all objects of employee class
+		*/
+		//How to access static data????
+		//Ans: we dont have to create object of class to access static data
+		//we can acess using class name
+		//Employee.companyName="Accenture";
+		//Que: can we access it using object??
+		//Ans: u can access but its not suggested way. else u will get warning as
+		// "The static field Employee.companyName should be accessed in a static way"
+
+	/*	Employee e2= new Employee();
+		e2.employeeId=1002;
+		e2.employeeName="Alex";
+		e2.salary=1234.44;
+		e2.companyName="Accenture";*/
+		///////////////////////////////////////////////////////////////////////////
+		Employee e3= new Employee(1122, "Lisa", 1234.33);
+		Employee e4= new Employee(1200, "ABCD", 1234.33);
+		Employee e5= new Employee(1300, "XYZ", 1234.33);
+		Employee e6= new Employee(1400, "Liza", 1234.33);
+
+		//As static is common prop/shared prop all of the objects can access it
+		// ! but they can modify also
+		System.out.println(e3.companyName); //Accenture
+		//e3.companyName="TCS"; // becoz of this the main value of compnay name will
+		//get chnaged to TCS , that means all other object will be able to see TCS as the value
+
+		System.out.println(e6.companyName); //TCS
+		System.out.println(Employee.companyName); //TCS
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+}
+
+package com.accenture.lkm.pack1;   public c... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:12
+package com.accenture.lkm.pack1;
+
+public class Student {
+	int studentId;
+	String studentName;
+	static int counter=0; //only single copy of static data is maintained in app
+	public Student(int studentId, String studentName) {
+		counter++;
+		this.studentId = studentId;
+		this.studentName = studentName;
+	}
+
+
+
+}
+
+package com.accenture.lkm.pack1;   public c... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:12
+package com.accenture.lkm.pack1;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Student s1= new Student(1001, "Sam");
+		Student s2= new Student(1002, "Max");
+		Student s3= new Student(1003, "Robin");
+		Student s4= new Student(1004, "Jack");
+		System.out.println(Student.counter);
+	}
+
+}
+
+===== code for final ===== by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:13
+===== code for final =====
+package com.accenture.lkm;   public class E... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:13
+package com.accenture.lkm;
+
+public class Employee {
+
+	public final String COMPANY_NAME="Accenture";
+
+	public final void display()
+	{
+		System.out.println("Hii from :: display method of emp class");
+	}
+
+}
+
+package com.accenture.lkm;   public class D... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:13
+package com.accenture.lkm;
+
+public class Developer extends Employee{
+
+/*	public final void display() //Cannot override the final method from Employee
+	{
+		System.out.println("Hii from :: display method of emp class");
+	}*/
+
+	//But final methods will get inherited to child classes and we can call them and use them
+	public void m1()
+	{
+		display(); //see we can call final methods and use them as normal methods
+	}
+
+
+}
+
+package com.accenture.lkm;     public class... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:13
+package com.accenture.lkm;
+
+
+public class Tester {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final double PI; //final var must be intialised at the time declaration only
+		PI=3.44;
+		//final var should be defined in all capital letters
+		//COMPANY_NAME
+		//INTEREST_RATE
+
+		Developer d= new Developer();
+		d.m1();
+
+	}
+
+}
+
+===== code for interface ====== by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:13
+===== code for interface ======
+package com.accenture.lkm;   public interfa... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:13
+package com.accenture.lkm;
+
+public interface MyInterface {
+	//we can declare var in interface, and they are marked as public static final implicitly
+	double PI=3.14;
+	//Till JDK 1.7
+	//It contains abstract methods
+	//by default methods declared in interfaces are public abstract
+	void m1();
+	void m2();
+
+	//From JDK 1.8 onwards
+	//It can contain concrete methods like default and static
+	//default keyword is allowed in interface and its mandatory to defined default methods
+	//Que: how many default methods we cab have in interface
+	//ANS: as many as per ur req
+	//NOTE: we can override default methods
+	default void m3()
+	{
+		System.out.println("m3 :: default method");
+	}
+
+	//static
+	//Que: how many static methods we cab have in interface
+	//ANS: as many as per ur req
+	//NOTE: we can not override static methods
+	static void m4()
+	{
+		System.out.println("m4 :: static method");
+	}
+}
+
+package com.accenture.lkm;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//we can not instantiate interfaces
+		//MyInterface ref= new MyInterface(); //Error: Cannot instantiate the type MyInterface
+		//But we can create ref of interface and in that ref we can store address
+		//of those classes who have implemented the interface
+		MyInterface ref1= new Sample();
+	//	MyInterface ref2= new A(); // this will not work as A class have not implemented Myinterface
+		//And by using this ref we can call only common methods
+		ref1.m1();
+		ref1.m2();
+	//	ref1.display(); //Error : The method display() is undefined for the type MyInterface
+
+		//ref1.PI=99;
+
+		MyInterface ref3= new Sample();
+		//ref3.m4(); //this will lead to error as we can not override static methd
+		ref3.m3(); //will work fine as we can override default methods.
+
+		MyInterface.m4();
+
+
+	}
+
+}
+
+package com.accenture.lkm;   public class A... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:14
+package com.accenture.lkm;
+
+public class A {
+
+}
+
+===== code showing an interface can extends... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:14
+===== code showing an interface can extends multiple intefaces =====
+package com.accenture.lkm.pack1;   public i... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:14
+package com.accenture.lkm.pack1;
+
+public interface I1 {
+	void m1();
+
+}
+
+package com.accenture.lkm.pack1;   public i... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:14
+package com.accenture.lkm.pack1;
+
+public interface I2 {
+	void m2();
+}
+
+package com.accenture.lkm.pack1;   //one in... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:14
+package com.accenture.lkm.pack1;
+
+//one interface can extend several interfaces
+public interface I3 extends I1,I2{
+	//One interface can inherit multiple interfaces.
+	void m3();
+}
+
+package com.accenture.lkm.pack1;   public c... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:14
+package com.accenture.lkm.pack1;
+
+public class A  implements I3{
+
+	@Override
+	public void m1() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void m2() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void m3() {
+		// TODO Auto-generated method stub
+	}
+	//i have to implements method from I1,I2,I3
+
+}
+
+package com.accenture.lkm.pack1;   //Note: ... by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:15
+package com.accenture.lkm.pack1;
+
+//Note: one class can implement several interfaces
+public class Sample implements I1,I2,I3{
+
+	@Override
+	public void m3() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void m2() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void m1() {
+		// TODO Auto-generated method stub
+	}
+
+}
+
+=== DONE ================== by Avinash Nikam, Swati
+Avinash Nikam, Swati
+15:15
+=== DONE ==================
+has context menu
+You can't send messages because you are not a member of the chat.
+has context menu

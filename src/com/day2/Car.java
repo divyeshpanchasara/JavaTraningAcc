@@ -5,24 +5,22 @@ public class Car {
             color,
             manufacture;
 
-    private int speed;
+    private float speed;
 
     public Car(String model, String color, String manufacture){
         this.model = model;
         this.color = color;
         this.manufacture = manufacture;
-        this.speed = 0;
+        this.speed = 0f;
     }
 
-    public Car(String model, String color, String manufacture, int speed) {
-        this.model = model;
-        this.color = color;
-        this.manufacture = manufacture;
+    public Car(String model, String color, String manufacture, float speed) {
+        this(model, color, manufacture);
         this.speed = speed;
     }
 
     public void display(){
-        System.out.printf("%s %s %s\n", this.model, this.color, this.manufacture);
+        System.out.printf("My speed is : %.1f %s %s %s\n", this.speed, this.model, this.color, this.manufacture);
     }
 
     public String getColor() {
@@ -49,25 +47,25 @@ public class Car {
         this.manufacture = manufacture;
     }
 
-    public int getSpeed() {
+    public float getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(float speed) {
         this.speed = speed;
     }
 
-    public void accelerate(int speed){
+    public void accelerate(float speed){
         this.speed += speed;
-        System.out.println("acclerataing to speed " + this.speed);
+        System.out.println("accelerating to speed " + this.speed);
     }
 
     public void applyBreak(){
-        this.speed = 0;
-        System.out.println("Applying break");
+        this.speed = 0f;
+        System.out.println("Applying break....");
     }
 
     public void testDrive(int speed){
-        System.out.println("Going for a test drive!!");
+        System.out.println("Going for a test drive...vromm!!");
     }
 }

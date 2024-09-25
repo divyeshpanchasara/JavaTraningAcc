@@ -2,12 +2,11 @@ package com.day2;
 
 public class Test {
     public static void main(String[] args) {
-        Car suzuki = new Car("Dzire", "blue", "suzuki");
-        Car jaguar = new Car("some model", "some color", "jaguar");
-        Car toyota = new Car("some model", "some color", "toyota");
-
-        suzuki.display();
-        jaguar.display();
-        toyota.display();
+//        Car amg = new Car("AMG S 63", "Blue", "Mercedes");
+//        amg.setSpeed(60);
+//        amg.display();
+        Calculator calculator =  new Calculator();
+        System.out.println(calculator.add(1,2));
+        System.out.println(calculator.add(1, 1.22));
     }
 }

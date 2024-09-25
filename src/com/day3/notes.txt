@@ -1,0 +1,363 @@
+package com.accenture.lkm;
+
+class Employee
+{
+  int employeeId;
+  String employeeName;
+  double salary;
+  public void display()
+  {
+	  System.out.println("Id is "+ employeeId + "Name is "+ employeeName +"Salary "+ salary);
+  }
+
+}
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+		//Req: i need to store empid of 66 emp
+	/*	int eid1,eid2,eid3,eid4,eid5;
+		eid1=1001;
+		eid2=1002;
+		eid3=1003;
+		eid4=1004;
+		eid5=1005;
+
+		System.out.println(eid1);
+		System.out.println(eid2);
+		System.out.println(eid3);
+		System.out.println(eid4);
+		System.out.println(eid5);*/
+
+		//Solution: Array
+		//datatype nameofArray[] = new datatype[size]
+		int arr[]= new int[5];
+		arr[0]=1001;
+		arr[1]=1002;
+		arr[2]=1003;
+		arr[3]=1004;
+		arr[4]=1005;  //last index of array = size -1
+		//arr[5]=1006; //this line wil lead to runtime exception
+		//ArrayIndexOutofException
+
+		//print the values
+	/*	System.out.println(arr[0]);
+		System.out.println(arr[1]);
+		System.out.println(arr[2]);
+		System.out.println(arr[3]);
+		System.out.println(arr[4]);*/
+		for(int index=0; index < arr.length ; index++  )
+		{
+			System.out.println(arr[index]);
+		}
+
+		////////////////////////////////////////////////////////////////
+		int arr2[]= {11,22,33,44,55}; //this is suitable when we have very small amount of data
+		System.out.println("------------------------------------------------");
+		for(int index=0;index < arr2.length ;index++)
+			System.out.println(arr2[index]);
+
+		//enhanced for loop
+		for(int index:arr2)
+			System.out.println(index);
+
+		//We can create array of any valid data type
+		byte arr3[]=new byte[4];
+		char arr4[]=new char[5];
+
+		//similar to this we can create array of objects ,as in employee
+
+		Employee allEmp[]= new Employee[5]; // it will create 5 ref of employee
+		allEmp[0]= new Employee();
+		allEmp[1]= new Employee();
+		allEmp[2]= new Employee();
+		allEmp[3]= new Employee();
+		allEmp[4]= new Employee();
+
+		//allEmp[0].display();
+		for(Employee each:allEmp)
+		{
+			System.out.println("----------------------------------");
+			each.display();
+		}
+	}
+
+}
+
+<------Strings----->
+2 ways --> using literals or Objects;
+
+package com.accenture.lkm;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+		//String - its a predefined class in java
+		//way1: literal
+		String str1="Hello1";
+		str1="Welcome";
+		System.out.println(str1);
+		//way2: object
+		String str2= new String("Java");
+		System.out.println(str2);
+		//VVVVIMPNOTE: string is immutable
+
+		System.out.println(str1); //Welcome
+		//now str1 will start poiting to welcome
+		//it will stop pointing to Hello
+
+		////////////////////////////////////////////////////////
+
+		String s1="Hello";
+		String s2="Hello"; //java will check if exactly same literal is already available in
+		//string constant pool
+		//then it simple refers to that
+		// !!! remember - java is case sensitivity
+
+		//object - order given to compile ,it has to create it
+		//it will not look into data even if it same to any literal or object
+		String s3= new String("Hello");
+		String s4= new String("Hello");
+		String s5="hello";
+	}
+}
+
+2. equals vs ==
+package com.accenture.lkm;
+
+public class Tester1002 {
+
+	public static void main(String[] args) {
+
+		//1. == - it will simply check the address stored in references
+		String str1="Hello";  //1111
+		String str2="Hello";  //1111
+		String str3=new String("Hello"); //3333
+		String str4=new String("Hello"); //4444
+		String str5=new String("hello");
+		System.out.println(str1  == str2); //true
+		System.out.println(str3 == str4); //false
+
+		//2. equals() - which checks the data stored in string
+		System.out.println(str1.equals(str2));  //true
+		System.out.println(str3.equals(str4));  //true
+		System.out.println(str3.equals(str5));  //false
+
+
+	}
+
+}
+
+3. String Methods
+package com.accenture.lkm;
+
+public class Tester1003 {
+
+	public static void main(String[] args) {
+		/////////////////// concat /////////////////////////////////////
+		String str1=new String("Wel");
+		String str2=new String("Come");
+		String str3=str1.concat(str2);
+		System.out.println(str1); //Wel
+		System.out.println(str3); //Welcome
+
+		////////// EqualIgnoreCase ///////////////////////////////////////
+		String email1 = "abc@gmail.com";
+		String email2= "AbC@Gmail.com";
+		System.out.println(email1.equalsIgnoreCase(email2)); //true
+		//////////  length /////////////////////////////////////
+		String test= "India is my country";
+		System.out.println("Length of the string is "+ test.length());
+
+		/////////// indexOfCharacter ///////////////////////
+		//VIMPNOTE: while checking index/position of a char it startw with 0
+		String email3= "abc@gmail.com";  // @ .
+		int index1= email3.indexOf("@");
+		int index2= email3.indexOf(".");
+		System.out.println(index1 + " and "+ index2);
+		/////////// lastIndexOf ///////////////////////////////
+		String test1="This is test string";  //t
+		System.out.println(test1.lastIndexOf("t"));
+		//// replace /////////
+		String s1="Good";
+		System.out.println(s1.replace("G", "F"));
+		System.out.println("Original string here s1 --->"+ s1);
+		/////// split ////////////////////
+		String data= "abc@gmail.com;pqr@gmail.com;xyz@gmail.com";
+		String splittedValues[]=data.split(";");
+		System.out.println("---------------------------------------------------");
+		for(String each: splittedValues)
+			System.out.println(each);
+	}
+}
+
+-----------------inheritance ----
+
+package com.accenture.lkm;
+
+public class Employee {
+
+	protected int employeeId;
+
+	protected String employeeName;
+
+	protected double salary;
+
+
+	public Employee()
+
+	{
+
+		System.out.println("Emp class default ctor invoked....");
+
+	}
+
+
+
+	//private data and constructors are not getting inherited in child classes
+
+	//protected is used to bridge the gap between private and public
+
+
+	//protected data is accessible in the inheritance hierarchical classes only
+
+	//and withing same package it is accesible to other classes
+
+	// A   -->  B extends A
+
+	//C
+
+	public void printData()
+
+	{
+
+		System.out.println("Id is "+ employeeId);
+
+		System.out.println("name "+ employeeName);
+
+		System.out.println("Salary "+ salary);
+
+	}
+
+
+}
+
+
+package com.accenture.lkm;
+
+public class Developer extends Employee {
+
+	protected int exHours;
+
+
+	public Developer()
+
+	{
+
+		System.out.println("Dev class default ctor invoked..");
+
+	}
+
+
+
+	public void display()
+
+	{
+
+		//as dev class is inheriting emp
+
+		//we can access data of emp class here directly
+
+		printData();
+
+		System.out.println("Ex hr "+ exHours);
+
+
+	}
+
+
+
+}
+
+
+package com.accenture.lkm;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		Developer d= new Developer();
+
+		d.employeeId=100;
+
+		d.employeeName="sara";
+
+		d.salary=1233.33;
+
+		d.exHours=10;
+
+		//d.display();
+
+
+		//Note: in inheritance hierarchy base class constructor will always get invoked first
+
+		//and followed by child class constructor
+
+
+		//  A  -> B --> C
+
+	}
+
+}
+
+
+========================
+
+package com.accenture.lkm.pack1;
+
+public class Employee {
+
+
+	protected int employeeId;
+
+	protected String employeeName;
+
+	protected double salary;
+
+}
+
+
+package com.accenture.lkm.pack2;
+
+import com.accenture.lkm.pack1.Employee;
+
+public class Developer extends Employee{
+
+	protected int extraHours;
+
+	public void display()
+
+	{
+
+		//See dev class is in pack2
+
+		//and extending emp class which is diff pkg
+
+		//and as dev class is a valid subclass
+
+		//therefore it can access protected data members of emp class here
+
+		System.out.println("Id "+ employeeId);
+
+		System.out.println("Name "+ employeeName);
+
+		System.out.println("Salary "+ salary);
+
+		System.out.println("Ex hr "+ extraHours);
+
+
+	}
+}
+

@@ -5,6 +5,4 @@ public class Employee {
         age;
     double  salary,
             varPay;
-
-
 }

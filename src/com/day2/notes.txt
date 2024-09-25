@@ -1,0 +1,66 @@
+day2 notes
+
+package com.accenture.lkm;
+
+public class MyCalculator {
+	public int add(int n1,int n2)
+	{
+		return n1+n2;
+	}
+	//below method will lead to compile time error
+	/*
+	 * public long add(int n1,int n2) { return n1+n2; }
+	 */
+
+
+	public double add(double n1,double n2)
+	{
+		return n1+n2;
+	}
+}
+
+
+
+package com.accenture.lkm;
+
+
+public class TestCalculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MyCalculator obj1= new MyCalculator();
+		int result1=obj1.add(10, 20);  //here we are passing constant values 10,20
+		System.out.println("Result is "+ result1);
+		int num1=100;
+		int num2=200;
+		int result2=obj1.add(num1, num2);
+		System.out.println("Result is "+ result2);
+	}
+
+}
+
+Method Overloading
+
+It takes places when we need to write two or more methods with same name in same class.
+
+
+add - 10 20   addition(int n1, int n2)
+add - 10 20 30  addition(int n1, int n2,int n3)
+add   10.11 12.22  summation(double d1,double d2)
+add-  10.11  12  addNumbers(double d1, int n1)
+
+
+Req:- i need to give same method name to all, as their functionality is same.
+
+Java say okay i will allow you to write two or more methods with same name but u need to follow any one of the below criteria
+1) number of parameters
+2) data type of param should be diff
+3) order of param
+      int double
+      double int
+
+VIMP NOTE: we can not achieve method overloading only on the basis of return type.
+      Example:
+		public int addition(int n1, int n2)
+		public double addition(int n1, int n2)
+	Above code will lead to compile time error
