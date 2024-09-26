@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Collection_Faculty/ATCILKM_Collection_Faculty/ATCILKM_Collection_Faculty.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Collection_Faculty/ATCILKM_Collection_Faculty/ATCILKM_Collection_Faculty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Collection_Participant/ATCILKM_Collection_Participant/ATCILKM_Collection_Participant.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Collection_Participant/ATCILKM_Collection_Participant/ATCILKM_Collection_Participant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Exception_Faculty/ATCILKM_Exception_Faculty.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Exception_Faculty/ATCILKM_Exception_Faculty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Exceptions_Participant/ATCILKM_Exceptions_Participant.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/ATCILKM_Exceptions_Participant/ATCILKM_Exceptions_Participant.iml" />
       <module fileurl="file://$PROJECT_DIR$/AccentureTrainingJava.iml" filepath="$PROJECT_DIR$/AccentureTrainingJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo100_Composition/Demo100_Composition.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo100_Composition/Demo100_Composition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo101_Aggregation/Demo101_Aggregation.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo101_Aggregation/Demo101_Aggregation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo102_StaticBinding/Demo102_StaticBinding.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo102_StaticBinding/Demo102_StaticBinding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo103_DynamicBinding/Demo103_DynamicBinding.iml" filepath="$PROJECT_DIR$/../../DemoWorkspace/Demos/Demo103_DynamicBinding/Demo103_DynamicBinding.iml" />
     </modules>
   </component>
 </project>
