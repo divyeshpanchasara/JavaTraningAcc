@@ -1,10 +1,11 @@
 package com.day6CollectionsAPI.assignment;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TransactionTester {
     public static void main(String[] args) {
-        ArrayList<Transaction> transactions = new ArrayList<>();
+        List<Transaction> transactions = new LinkedList<>();
         for(int i = 0; i < 100; i++){
             transactions.add(
                     new Transaction("TID:" + Integer.toString((int)(Math.random() * 1000000)),

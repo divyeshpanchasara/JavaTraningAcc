@@ -1,0 +1,327 @@
+package com.accenture.lkm;
+
+import java.util.HashMap;
+
+import java.util.Map;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+
+		// 1  IntrotoJava
+
+		//2   Data types
+
+		//3   Control structures
+
+		//3   ClassAndObjects
+
+		//10001  abc@gamil.com
+
+		//key value
+
+		//key - key can not be duplicated
+
+		//if we give duplicate value for key
+
+		// it will simply override the new value
+
+
+		//111568911   9604123456
+
+		//111568911   9812344555
+
+		//value can be duplicated
+
+		HashMap<Integer, String> map1= new HashMap<Integer, String>();
+
+		map1.put(1001, "Swati");
+
+		map1.put(1002, "Lisa");
+
+		map1.put(1003, "Jack");
+
+		map1.put(1004, "Sam");
+
+		map1.put(1004, "Sara");
+
+		map1.put(1001, "Alexa");
+
+		map1.put(null, "Rockey");
+
+		map1.put(null, "Harry");
+
+		map1.put(null, null);
+
+		map1.put(null, "Siri");
+
+		map1.put(1005, "Oliver");
+
+		map1.put(1006, "Oliver");
+
+		map1.put(1007, "Oliver");
+
+
+		//Internally keys are stored in Set container
+
+		//and values are stored in list container
+
+		System.out.println(map1);
+
+		//System.out.println("Employee name of emp whose id  is 1003 "+map1.get(1003));
+
+		//System.out.println(map1.remove(1004));
+
+		//System.out.println(map1);
+	}
+
+}
+=======================
+
+package com.accenture.lkm;
+
+import java.util.HashMap;
+
+import java.util.HashSet;
+
+import java.util.Iterator;
+
+import java.util.Set;
+
+public class Tester1002 {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		HashMap<Integer, String> map1= new HashMap<Integer, String>();
+
+		map1.put(1001, "Swati");
+
+		map1.put(1002, "Lisa");
+
+		map1.put(1003, "Jack");
+
+		map1.put(1004, "Sam");
+
+
+		//System.out.println(map1);
+
+		Set<Integer> set= new HashSet<Integer>();
+
+		set = map1.keySet();  // all keys are extracted and stored in this container
+
+		Iterator< Integer> itr= set.iterator();
+
+		while(itr.hasNext())
+
+		{
+			Integer key = itr.next();
+
+			String value= map1.get(key);
+
+			System.out.println("Key is "+ key+ " Value is "+ value.length());
+
+		}
+	}
+
+}
+
+===================================
+package com.accenture.lkm;
+
+import java.util.HashMap;
+
+public class Tester1003 {
+
+	public static void main(String[] args) {
+        HashMap<Integer, String> map1= new HashMap<Integer, String>();
+		map1.put(1001, "Swati");
+		map1.put(1002, "Lisa");
+		map1.put(1003, "Jack");
+		map1.put(1004, "Sam");
+		//*****
+		map1.forEach((key,value) -> System.out.println("Key is "+ key + "Value is "+ value));
+
+	}
+
+}
+
+========================================================
+package com.accenture.lkm;
+
+public class Employee  implements Comparable<Employee>{
+	protected int employeeId;
+	protected String employeeName;
+	protected double salary;
+	public Employee(int employeeId, String employeeName, double salary) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		String str= "Employee id "+ employeeId + " Name "+ employeeName + "Salary "+ salary;
+		return str;
+	}
+
+	//Sample data -  1010  1003  1002  1000
+
+
+	@Override
+	public int compareTo(Employee o) {
+		//asecnding order
+		if(this.employeeId < o.employeeId)            //1010 1003 - their subtraction is positive number so returning 1
+			return -1;
+		else if(this.employeeId > o.employeeId)       // 1000 1003 - their subtraction is negative number so returning -1
+			return 1;
+		else
+			return 0;                                // 1001 1001  - when 2 number are same
+	}
+
+	/*
+	//asecnding order
+		if(this.employeeId < o.employeeId)            //1010 1003 - their subtraction is positive number so returning 1
+			return 1;
+		else if(this.employeeId > o.employeeId)       // 1000 1003 - their subtraction is negative number so returning -1
+			return -1;
+		else
+			return 0;
+
+
+*/
+}
+
+============================================================
+package com.accenture.lkm;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+		List<Employee> all= new ArrayList<Employee>();
+		all.add(new Employee(1010,"Sara",1234.44));
+		all.add(new Employee(1005,"Jack",1234.44));
+		all.add(new Employee(1008,"Lisa",1234.44));
+		all.add(new Employee(1000,"Sam",1234.44));
+		//Req: i want to sort the data of all employees
+		//
+		//we can write a code to sort the data manually
+		//then we have to choose some sorting algorithm likw bubble,selection
+		//Again some of u may not know what is bubble sort
+		//they u have to go back and learn the sorting algorithm first
+		//therefore java use Comparable interface
+		//We have to implement this interface in a class , which data we want to get sorted
+		//so in out case we want employee data should be sorted
+		//therefore we will implement this interface in Employee class
+
+		//Step1- implement the interface and override comparTo method
+		//Step2- call sort method
+		System.out.println("Data before  sorting ");
+		all.forEach(each -> System.out.println(each));
+
+		Collections.sort(all);
+		//this sort method wil implecitly give a call to comparTo method
+		//and will keep passing 2 objects every time for comparion
+
+
+		System.out.println();
+		System.out.println();
+		System.out.println("Data after sorting ");
+		all.forEach(each -> System.out.println(each));
+	}
+}
+============================================================
+package com.accenture.lkm;
+//POJO- Plain old Java object
+// should not conatin complex business logic
+public class Employee {
+	protected int employeeId;
+	protected String employeeName;
+	protected double salary;
+	public Employee(int employeeId, String employeeName, double salary) {
+		//super(); //Its for object class ctor, but its optional
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		String str= "Employee id "+ employeeId + " Name "+ employeeName + "Salary "+ salary;
+		return str;
+	}
+}
+==========================================
+package com.accenture.lkm;
+
+import java.util.Comparator;
+
+public class EmployeeIdComparator implements Comparator<Employee> {
+
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		if(o1.employeeId < o2.employeeId)
+			return -1;
+		else if(o1.employeeId > o2.employeeId)
+			return 1;
+		else
+		return 0;
+	}
+
+
+}
+
+==================================================
+package com.accenture.lkm;
+
+import java.util.Comparator;
+
+public class SalaryComparator implements Comparator<Employee>{
+
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		if(o1.salary < o2.salary)
+			return -1;
+		else if(o1.salary > o2.salary)
+			return 1;
+		else
+		return 0;
+	}
+
+}
+
+=================================================
+package com.accenture.lkm;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Tester1001 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+List<Employee> all= new ArrayList<Employee>();
+		all.add(new Employee(1010,"Sara",14000.44));
+		all.add(new Employee(1005,"Jack",72000.44));
+		all.add(new Employee(1008,"Lisa",11000.44));
+		all.add(new Employee(1000,"Sam",50000.44));
+		System.out.println("Before sorting");
+		all.forEach(each -> System.out.println(each));
+		//Collections.sort(all, new EmployeeIdComparator());  //Note here second param is the ref of a
+									// class who has implemented compartaor interface
+		Collections.sort(all, new SalaryComparator());
+		System.out.println();
+		System.out.println();
+		System.out.println("After sorting");
+		all.forEach(each -> System.out.println(each));
+
+		//Try to sort the data on the basis of names
+	}
+}

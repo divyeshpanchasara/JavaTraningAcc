@@ -1,6 +1,8 @@
 package com.day6CollectionsAPI.assignment;
 
-public class Employee {
+import java.util.Comparator;
+
+public class Employee implements Comparable<Employee> {
     private int employeeId;
     private String employeeName;
     private int yearsOfExperience;
@@ -40,4 +42,12 @@ public class Employee {
     public double getSalary() {
         return salary;
     }
+    // writing this logic in different java files as this a pogo/beans class
+    @Override
+    public int compareTo(Employee e) {
+        if(this.employeeId > e.employeeId) return 1;
+        else if(this.employeeId < e.employeeId) return -1;
+        return 0;
+    }
+    //pogo : plane old java object and should not contain business logic
 }
