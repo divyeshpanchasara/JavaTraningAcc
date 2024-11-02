@@ -1,0 +1,112 @@
+package com.accenture.lkm;
+
+public class Tester implements Person {
+
+	public static void main(String[] args) {
+
+		Tester em = new Tester();
+		em.info();
+		Person.display();
+		em.displayAgain();
+
+	}
+
+	@Override
+	public void info() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+package com.accenture.lkm;
+
+public interface Person {
+	 void info();
+	 static void display() {
+		System.out.println("i'm in interface");
+	}
+
+	 default void displayAgain() {
+		System.out.println("I'm default method");
+	}
+
+
+}
+
+package com.accenture.lkm;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		Calculate calculate = new Calculate() {
+			public void area() {
+				int r=5;
+				System.out.println("area of circle: " + (3.14 * r*r));
+			}
+
+			@Override
+			public void volume() {
+				int side=5;
+				System.out.println("volume of cube :" + (side*side*side));
+			}
+		};
+		calculate.area();
+		calculate.volume();
+
+	}
+
+}
+
+package com.accenture.lkm;
+
+public interface Calculate {
+
+	void area();
+	void volume();
+}
+
+lambda expression -->
+
+package com.accenture.lkm;
+
+@FunctionalInterface
+public interface Calculate {
+
+	void area(int radius);
+
+}
+package com.accenture.lkm;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		Calculate calculate = radius->{
+			System.out.println("area of circle: " + (3.14*radius*radius));
+		};
+
+		calculate.area(5);
+
+	}
+
+}
+
+/*
+signature of the Operation interface
+    public interface Operation {
+        int operation( int a,  int b);
+    }
+ */
+
+package com.day11java8features;
+
+public class Test {
+
+    public static void main(String[] args) {
+        Operation add = (a, b) -> a + b;
+        Operation sub = (a, b) -> a - b;
+
+        System.out.println(add.operation(5, 5));
+        System.out.println(sub.operation(5, 3));
+    }
+}

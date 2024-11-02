@@ -1,10 +1,10 @@
 package com.day6CollectionsAPI.assignment;
 
 public class Transaction {
-    final private String transactionId;
-    final private long    senderAccountNumber;
-    final private long receiverAccountNumber;
-    final private long transactionAmount;
+    private String transactionId;
+    private long senderAccountNumber;
+    private long receiverAccountNumber;
+    private long transactionAmount;
 
     public Transaction(String transactionId, long senderAccountNumber, long receiverAccountNumber, long transactionAmount) {
         this.transactionId = transactionId;
